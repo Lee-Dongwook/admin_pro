@@ -7,7 +7,9 @@ import { ref } from "vue";
 
 function hasPermission(roles: string[], route: RouteRecordRaw) {
   const routerRoles = route.meta?.roles;
-  return routerRoles ? roles.some((role) => routerRoles.includes(role)) : true;
+  return routerRoles
+    ? roles.some((role: any) => routerRoles.includes(role))
+    : true;
 }
 
 function filterDynamicRoutes(routes: RouteRecordRaw[], roles: string[]) {
